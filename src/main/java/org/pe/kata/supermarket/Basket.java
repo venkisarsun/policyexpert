@@ -1,16 +1,23 @@
 package org.pe.kata.supermarket;
 
+import org.pe.kata.supermarket.discount.service.DiscountCalculatorService;
+import org.pe.kata.supermarket.discount.service.DiscountType;
+import org.pe.kata.supermarket.discount.service.impl.DiscountCalculatorServiceImpl;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Basket {
     private final List<Item> items;
+    private final DiscountCalculatorService discountCalculatorService;
 
     public Basket() {
         this.items = new ArrayList<>();
+        this.discountCalculatorService = new DiscountCalculatorServiceImpl();
     }
 
     public void add(final Item item) {
@@ -47,7 +54,12 @@ public class Basket {
          *  which provides that functionality.
          */
         private BigDecimal discounts() {
-            return BigDecimal.ZERO;
+            return Stream.of(DiscountType.values())
+                    .map(discountType -> {
+                       BigDecimal discount= discountCalculatorService.applyDiscountCalculation(discountType, items).applyDiscount();
+                       return discount;
+                    }
+                    ).reduce(BigDecimal::add).get();
         }
 
         private BigDecimal calculate() {

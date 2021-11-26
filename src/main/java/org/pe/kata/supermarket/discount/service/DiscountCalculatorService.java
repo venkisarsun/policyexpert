@@ -5,7 +5,7 @@ import org.pe.kata.supermarket.Item;
 import java.util.List;
 
 /**
- * Interface method  to carry out discount calculation
+ * Interface method  to carry out discount calculation based on the discount type for the items
  */
 public interface DiscountCalculatorService {
 
