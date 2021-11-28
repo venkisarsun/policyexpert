@@ -12,6 +12,6 @@ interface methods and service methods to calculate the discount for various
      - Buy two items for £1
      - Buy three items for the price of two
 
-2. Unit Tests to be completed
+2. Unit Tests to be added
 
 
