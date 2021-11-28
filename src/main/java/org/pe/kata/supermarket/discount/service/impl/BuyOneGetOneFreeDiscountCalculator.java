@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Discount Calculator for Buy one Get One Free.
+ * Discount Calculator for Buy one Get One Free discount type.
  */
 public class BuyOneGetOneFreeDiscountCalculator implements DiscountCalculator {
 

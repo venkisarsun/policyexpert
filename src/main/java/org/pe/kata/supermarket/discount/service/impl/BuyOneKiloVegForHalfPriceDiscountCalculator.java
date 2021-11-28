@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Discount Calculator for Buy one Kilo Veg for Half Price discount type.
+ */
 public class BuyOneKiloVegForHalfPriceDiscountCalculator implements DiscountCalculator {
 
     private List<ItemByWeight> items;
